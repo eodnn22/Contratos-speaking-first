@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinatura de Contrato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-area">
+            <img src="download (1).png" alt="Logo da Empresa">
+        </div>
+
+        <div class="progress-bar"><div id="progress"></div></div>
+
+        <form id="contractForm">
+            <input type="hidden" name="access_key" value="181da12d-1f79-4491-8688-f8a0e92c9a63">
+            <input type="hidden" name="subject" value="Nova assinatura de contrato">
+            <input type="hidden" name="assinatura_base64" id="assinaturaBase64">
+            
+            <h2>Dados do Aluno</h2>
+            <input type="text" name="nome" placeholder="Nome Completo" required>
+<input type="number" name="idade" placeholder="Idade" min="1" required>
+<input type="text" name="cpf" id="cpf" placeholder="CPF (000.000.000-00)" required>
+<input type="email" name="email" placeholder="E-mail" required>
+            
+            <p style="margin-top: 15px; font-weight: bold;">Você já recebeu seu contrato?</p>
+            <div class="radio-group">
+                <label><input type="radio" name="recebeu_contrato" value="nao" id="radioNao"> Não, quero receber</label>
+                <label><input type="radio" name="recebeu_contrato" value="sim" id="radioSim"> Sim</label>
+            </div>
+
+            <div id="areaConfirmacao" class="hidden">
+                <div class="checkbox-group">
+                    <input type="checkbox" name="termos" id="termos">
+                    <label for="termos">Li meu contrato e concordo com tudo.</label>
+                </div>
+                <button type="button" id="btnAssinar" class="btn-secondary">Prosseguir para Assinatura</button>
+            </div>
+
+            <button type="button" id="btnWhatsApp" class="hidden">Solicitar Contrato no WhatsApp</button>
+
+            <div id="areaAssinatura" class="hidden">
+                <p>Assine na linha abaixo:</p>
+                <canvas id="canvasAssinatura" width="400" height="200"></canvas>
+                <div class="buttons">
+                    <button type="button" id="btnLimpar">Limpar</button>
+                    <button type="submit" id="btnEnviar">Enviar Assinatura</button>
+                    <div class="file-upload-group" style="margin-top: 15px;">
+    <p style="font-size: 14px;">Já possui uma assinatura? <span style="color: blue; cursor: pointer;" onclick="document.getElementById('fileInput').click()">Anexe aqui</span></p>
+    <input type="file" id="fileInput" accept="image/*" class="hidden">
+</div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
